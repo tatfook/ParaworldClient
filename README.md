@@ -1,6 +1,6 @@
 # ParaworldClient
 
-For each paraworlc client app, call following code on startup. 
+For each paraworld client app, call following code on startup. 
 ```
 local ParaWorldClient = NPL.load("ParaWorldClient")
 ParaWorldClient:Init()
