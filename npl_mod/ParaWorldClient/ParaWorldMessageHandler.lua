@@ -10,9 +10,16 @@ local ParaWorldMessageHandler = NPL.load("./ParaWorldMessageHandler.lua"");
 NPL.activate("npl_mod/ParaWorldClient/ParaWorldMessageHandler.lua")
 ------------------------------------------------------------
 ]]
-local ParaWorldClient = NPL.load("./ParaWorldClient.lua")
 local ParaWorldMessageHandler = NPL.export();
 
+local connector; 
+local function GetConnector()
+    if(connector == nil) then
+        local ParaWorldClient = NPL.load("./ParaWorldClient.lua")
+        connector = ParaWorldClient:GetConnector();
+    end
+    return connector;
+end
 
 -- npl message receiver
 -- l2c stands for "lua to cpp"
@@ -20,7 +27,7 @@ local ParaWorldMessageHandler = NPL.export();
 -- p2g stands for "paraworld to game"
 -- g2p stands for "game to paraworld"
 local function activate()
-    local platformConnector = ParaWorldClient:GetConnector();
+    local platformConnector = GetConnector()
     --LOG.std(nil, "debug", "truckstar", "paraworld message receiver");
     if (msg.command == "p2g_heartbeat") then
         --LOG.std(nil, "debug", "truckstar", "paraworld heartbeat received");
