@@ -26,10 +26,10 @@ local function activate()
         --LOG.std(nil, "debug", "truckstar", "paraworld heartbeat received");
         platformConnector:SendMessage({command="g2p_heartbeat_response"});
     elseif (msg.command == "p2g_quitgame") then
-        LOG.std(nil, "debug", "truckstar", "paraworld asked this game to quit");
+        LOG.std(nil, "info", "ParaWorldClient", "paraworld asked this game to quit");
         platformConnector:SendMessage({command="g2p_quitgame_response"});
         ParaEngine.GetAttributeObject():CallField("BringWindowToTop");
-        _guihelper.MessageBox(TL"上层平台要求强制退出本游戏，是否退出？（任何未保存的进度可能会丢失）",
+        _guihelper.MessageBox(L"上层平台要求强制退出本游戏，是否退出？（任何未保存的进度可能会丢失）",
             function(res)
                 if res then
                     if res == _guihelper.DialogResult.Yes then

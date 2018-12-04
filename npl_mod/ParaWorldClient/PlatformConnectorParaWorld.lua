@@ -11,7 +11,8 @@ local PlatformConnectorParaworld = NPL.load("./PlatformConnectorParaworld.lua")
 ]]
 
 local NetworkClient = NPL.load("./NetworkClient.lua");
-local PlatformConnectorBase = NPL.load("./PlatformConnectorBase.lua");
+NPL.load("(gl)script/Truck/Network/PlatformConnectorBase.lua");
+local PlatformConnectorBase = commonlib.gettable("Mod.Truck.Network.PlatformConnectorBase");
 local PlatformConnectorParaworld = commonlib.inherit(PlatformConnectorBase, NPL.export());
 
 function PlatformConnectorParaworld:ctor()
@@ -26,12 +27,12 @@ end
 function PlatformConnectorParaworld:Init()
     PlatformConnectorParaworld._super.Init(self);
 
-    LOG.std(nil, "debug", "truckstar", "initing paraworld connecter");
+    LOG.std(nil, "info", "PlatformConnectorParaworld", "initializing paraworld connector");
 
     self.nid =  NetworkClient.connect(self.remote_ip,
                                       self.remote_port,
                                       function()
-                                          LOG.std(nil, "debug", "truckstar", "paraworld connection failed");
+                                          LOG.std(nil, "warn", "PlatformConnectorParaworld", "paraworld connection failed");
                                       end,
                                       self.remote_address);
     NPL.AddPublicFile("script/Truck/Network/ParaWorldMessageHandler.lua", 601);
