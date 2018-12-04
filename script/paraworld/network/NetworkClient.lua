@@ -38,7 +38,7 @@ function NetworkClient.start(ip, port)
 	NPL.StartNetServer(ip, port)
 	-- set receiving entry ( entry: activate() )
 	NPL.AddPublicFile("script/paraworld/network/NetworkClient.lua", 201);
-
+	
 	NPL.load("(gl)script/paraworld/network/GameConnector.lua");
 	local GameConnector = commonlib.gettable("paraworld.network.GameConnector");
 	GameConnector.AddPublicFile();

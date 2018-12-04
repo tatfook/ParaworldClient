@@ -37,6 +37,7 @@ function PlatformConnectorParaworld:Init()
                                       end,
                                       self.remote_address);
     NPL.AddPublicFile("script/Truck/Network/ParaWorldMessageHandler.lua", 601);
+    NPL.AddPublicFile("npl_mod/ParaWorldClient/ParaWorldMessageHandler.lua", 602);
     
     self.inited = true;
     

@@ -138,6 +138,4 @@ local function activate()
 		end
 	end
 end
-NPL.this(function ()
-	try_catch(activate)
-end);
+NPL.this(activate);
