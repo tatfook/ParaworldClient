@@ -10,8 +10,9 @@ local PlatformConnectorParaworld = NPL.load("./PlatformConnectorParaworld.lua")
 ------------------------------------------------------------
 ]]
 
-local NetworkClient = NPL.load("./NetworkClient.lua");
+NPL.load("(gl)script/Truck/Network/NetworkClient.lua");
 NPL.load("(gl)script/Truck/Network/PlatformConnectorBase.lua");
+local NetworkClient = commonlib.gettable("Mod.Truck.Network.NetworkClient");
 local PlatformConnectorBase = commonlib.gettable("Mod.Truck.Network.PlatformConnectorBase");
 local PlatformConnectorParaworld = commonlib.inherit(PlatformConnectorBase, NPL.export());
 
